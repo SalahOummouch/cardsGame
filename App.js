@@ -1,50 +1,15 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import { Alert, StyleSheet, Text, View, Button, Image } from "react-native";
+import Ronda from "./Components/Ronda";
 
 export default function App() {
-  const Game = () => {
+
     const [distributedCards, setDistributedCards] = useState([
-      "00",
-      "01",
-      "02",
-      "03",
-      "04",
-      "05",
-      "06",
-      "07",
-      "08",
-      "09",
-      "10",
-      "11",
-      "12",
-      "13",
-      "14",
-      "15",
-      "16",
-      "17",
-      "18",
-      "19",
-      "20",
-      "21",
-      "22",
-      "23",
-      "24",
-      "25",
-      "26",
-      "27",
-      "28",
-      "29",
-      "30",
-      "31",
-      "32",
-      "33",
-      "34",
-      "35",
-      "36",
-      "37",
-      "38",
-      "39",
+      "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10",
+      "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21",
+      "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32",
+      "33", "34", "35", "36", "37", "38", "39"
     ]);
 
     const [player1, setPlayer1] = useState([]);
@@ -77,7 +42,7 @@ export default function App() {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         <Button title="Distribuer les cartes" onPress={distributeCards} />
-        
+
         <View style={{ marginTop: 20 }}>
           <Text>Joueur 1:</Text>
           <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
@@ -85,12 +50,13 @@ export default function App() {
               <Image
                 key={index}
                 style={{ width: "25%", height: 150 }}
-                source={require(`./assets/cartes/${card}.gif`)}
+                source={require(`./assets/cartes/22.gif`)}
               />
             ))}
           </View>
         </View>
-        
+        <Ronda />
+
         <View style={{ marginTop: 20 }}>
           <Text>Joueur 2:</Text>
           <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
@@ -98,30 +64,11 @@ export default function App() {
               <Image
                 key={index}
                 style={{ width: "25%", height: 150 }}
-                source={require(`./assets/cartes/${card}.gif`)}
+                source={require(`./assets/cartes/00.gif`)}
               />
             ))}
           </View>
         </View>
-      
       </View>
     );
   };
-
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <View />
-      <StatusBar style="auto" />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

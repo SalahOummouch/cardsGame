@@ -1,24 +1,24 @@
 import React from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 
-function View  () {
+function Ronda  () {
   return (
     <View style={styles.container}>
       
       <Image 
-        source={require('./assets/profile (1).gif')} 
+        source={require('../assets/profile (1).gif')} 
         style={[styles.playerIcon, styles.topIcon]} 
       />
       
      
       <Image 
-        source={require('./assets/ronda_maroc.png')} 
+        source={require('../assets/ronda_maroc.png')} 
         style={styles.image} 
       />
 
       
       <Image 
-        source={require('./assets/profile.gif')} 
+        source={require('../assets/profile.gif')} 
         style={[styles.playerIcon, styles.bottomIcon]} 
       />
     </View>
@@ -54,4 +54,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default View;
+export default Ronda;
