@@ -1,17 +1,16 @@
 import React from "react";
+import { View, Image } from "react-native";
 
-export default function Blink(blinkcards) {
+export default function Blink({ blinkcards, cardImages }) {
   return (
-    <div>
-      <View style={{display : flex, flexDirection: "row",   alignItems: "center", justifyContent: "center"}}>
-        {blinkcards.map((blinkcard, index) => (
-          <Image
-            key={index}
-            style={styles.blinkcard}
-            source={cardImages[blinkcard]}
-          />
-        ))}
-      </View>
-    </div>
+    <View style={{position: "absolute", display : "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", flexWrap: "wrap", zIndex:1000}}>
+      {blinkcards.map((blinkcard, index) => (
+        <Image
+          key={index}
+        
+          source={cardImages[blinkcard]}
+        />
+      ))}
+    </View>
   );
 }

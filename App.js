@@ -1,7 +1,8 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { Alert, StyleSheet, Text, View, Button, Image } from "react-native";
+import { Alert, StyleSheet, Text, View, Button, Image, TouchableOpacity } from "react-native";
 import Ronda from "./Components/Ronda";
+import Blink from "./Components/Blink";
 
 // Map the card names to their corresponding images
 const cardImages = {
@@ -82,10 +83,10 @@ export default function App() {
       "Les cartes ont été distribuées avec succès !"
     );
   };
-  const cardToBlink = (card , player) => {
-      setBlinkCards(card);
 
-
+  const cardToBlink = (card, player) => {
+    setBlinkCards((prevBlinkCards) => [...prevBlinkCards, card]);
+    // Alert.alert(card);
   };
 
   return (
@@ -94,28 +95,29 @@ export default function App() {
         <Text style={styles.playerText}>Joueur 1:</Text>
         <View style={styles.cardContainer}>
           {player1.map((card, index) => (
-            <Image
-              onPress={() => cardToBlink(card, 1)}
-              key={index}
-              style={styles.card}
-              source={cardImages[card]}
-            />
+            <TouchableOpacity key={index} onPress={() => cardToBlink(card, 1)}>
+              <Image
+                style={styles.card}
+                source={cardImages[card]}
+              />
+            </TouchableOpacity>
           ))}
         </View>
       </View>
 
       <Ronda />
+      <Blink blinkcards={blinkCards} cardImages={cardImages} />
 
       <View style={styles.playerContainer}>
         <Text style={styles.playerText}>Joueur 2:</Text>
         <View style={styles.cardContainer}>
           {player2.map((card, index) => (
-            <Image
-              onPress={() => cardToBlink(card, 2)}
-              key={index}
-              style={styles.card}
-              source={cardImages[card]}
-            />
+            <TouchableOpacity key={index} onPress={() => cardToBlink(card, 2)}>
+              <Image
+                style={styles.card}
+                source={cardImages[card]}
+              />
+            </TouchableOpacity>
           ))}
         </View>
       </View>
