@@ -45,8 +45,9 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   topIcon: {
-    top: 10, 
-    left: 10, 
+    top: 20, 
+    left: 10,
+     
   },
   bottomIcon: {
     bottom: 10, 

@@ -41,7 +41,6 @@ export default function App() {
 
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Button title="Distribuer les cartes" onPress={distributeCards} />
 
         <View style={{ marginTop: 20 }}>
           <Text>Joueur 1:</Text>
@@ -69,6 +68,8 @@ export default function App() {
             ))}
           </View>
         </View>
+        <Button title="Distribuer les cartes" onPress={distributeCards} />
+
       </View>
     );
   };
