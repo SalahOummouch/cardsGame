@@ -57,6 +57,7 @@ export default function App() {
 
   const [player1, setPlayer1] = useState([]);
   const [player2, setPlayer2] = useState([]);
+  const [blinkCards, setBlinkCards] = useState([]);
 
   const distributeCards = () => {
     const shuffleArray = (array) => {
@@ -81,6 +82,11 @@ export default function App() {
       "Les cartes ont été distribuées avec succès !"
     );
   };
+  const cardToBlink = (card , player) => {
+      setBlinkCards(card);
+
+
+  };
 
   return (
     <View style={styles.container}>
@@ -89,6 +95,7 @@ export default function App() {
         <View style={styles.cardContainer}>
           {player1.map((card, index) => (
             <Image
+              onPress={() => cardToBlink(card, 1)}
               key={index}
               style={styles.card}
               source={cardImages[card]}
@@ -104,6 +111,7 @@ export default function App() {
         <View style={styles.cardContainer}>
           {player2.map((card, index) => (
             <Image
+              onPress={() => cardToBlink(card, 2)}
               key={index}
               style={styles.card}
               source={cardImages[card]}
