@@ -25,20 +25,6 @@ const styles = StyleSheet.create({
     height: 200,
     resizeMode: 'contain',
   },
-  playerIcon: {
-    position: 'absolute',
-    width: 50,
-    height: 50,
-    resizeMode: 'contain',
-  },
-  topIcon: {
-    top: 20,
-    left: 10,
-  },
-  bottomIcon: {
-    bottom: 10,
-    right: 10,
-  },
 });
 
 export default Ronda;

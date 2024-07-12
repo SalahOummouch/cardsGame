@@ -111,9 +111,25 @@ export default function App() {
     Alert.alert("Jeu Redémarré", "Le jeu a été redémarré avec succès !");
   };
 
+  const confirmRestartGame = () => {
+    Alert.alert(
+      'Confirm Restart',
+      'Are you sure you want to restart the game?',
+      [
+        {
+          text: 'Cancel',
+          onPress: () => console.log('Cancel Pressed'),
+          style: 'cancel'
+        },
+        { text: 'OK', onPress: () => restartGame() }
+      ],
+      { cancelable: false }
+    );
+  };
+
   return (
     <View style={styles.container}>
-      <Text style={styles.headerText}>Jeu de Cartes Marocain</Text>
+      <Text style={styles.headerText}>Solitaire</Text>
       <View style={styles.playerContainer}>
         <Text style={styles.playerText}>Joueur 1:</Text>
         <View style={styles.cardContainer}>
@@ -148,7 +164,7 @@ export default function App() {
       <TouchableOpacity style={styles.button} onPress={distributeCards}>
         <Text style={styles.buttonText}>Distribuer les cartes</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={restartGame}>
+      <TouchableOpacity style={styles.button} onPress={confirmRestartGame}>
         <Text style={styles.buttonText}>Redémarrer le jeu</Text>
       </TouchableOpacity>
     </View>
@@ -167,6 +183,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "bold",
     marginBottom: 20,
+    marginTop :20,
     color: "#333",
   },
   playerContainer: {
