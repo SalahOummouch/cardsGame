@@ -79,10 +79,7 @@ export default function App() {
     setPlayer2(cardsPlayer2);
     setDistributedCards(shuffledCards.slice(8));
 
-    Alert.alert(
-      "Distribution des cartes",
-      "Les cartes ont été distribuées avec succès !"
-    );
+   
   };
 
   const cardToBlink = (card, player) => {
@@ -108,13 +105,13 @@ export default function App() {
     setPlayer1([]);
     setPlayer2([]);
     setBlinkCards([]);
-    Alert.alert("Jeu Redémarré", "Le jeu a été redémarré avec succès !");
+    Alert.alert( "Awa chti Tbrhich!");
   };
 
   const confirmRestartGame = () => {
     Alert.alert(
       'Confirm Restart',
-      'Are you sure you want to restart the game?',
+      'Wach bseh baghi t3awd l game?',
       [
         {
           text: 'Cancel',

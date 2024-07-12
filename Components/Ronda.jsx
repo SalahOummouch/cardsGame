@@ -18,7 +18,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#fff',
-    position: 'relative',
+    position:'relative',
+    marginBottom: 20,
   },
   image: {
     width: 300,
