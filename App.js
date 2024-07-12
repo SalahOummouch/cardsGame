@@ -4,7 +4,6 @@ import { Alert, StyleSheet, Text, View, Button, Image, TouchableOpacity } from "
 import Ronda from "./Components/Ronda";
 import Blink from "./Components/Blink";
 
-// Map the card names to their corresponding images
 const cardImages = {
   "00": require("./assets/cartes/00.gif"),
   "01": require("./assets/cartes/01.gif"),
@@ -49,6 +48,8 @@ const cardImages = {
 };
 
 export default function App() {
+  const [currentTurn, setCurrentTurn] = useState(1);
+
   const [distributedCards, setDistributedCards] = useState([
     "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10",
     "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21",
@@ -85,16 +86,21 @@ export default function App() {
   };
 
   const cardToBlink = (card, player) => {
+    if (player !== currentTurn) {
+      Alert.alert(" wa tsna asahbi!");
+      return;
+    }
+
     setBlinkCards((prevBlinkCards) => [...prevBlinkCards, card]);
-  
+
     if (player === 1) {
       setPlayer1((prevPlayer1) => prevPlayer1.filter((c) => c !== card));
     } else if (player === 2) {
       setPlayer2((prevPlayer2) => prevPlayer2.filter((c) => c !== card));
     }
-    // Alert.alert(card);
+
+    setCurrentTurn(currentTurn === 1 ? 2 : 1);
   };
-  
 
   return (
     <View style={styles.container}>
