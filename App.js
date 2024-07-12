@@ -86,8 +86,15 @@ export default function App() {
 
   const cardToBlink = (card, player) => {
     setBlinkCards((prevBlinkCards) => [...prevBlinkCards, card]);
+  
+    if (player === 1) {
+      setPlayer1((prevPlayer1) => prevPlayer1.filter((c) => c !== card));
+    } else if (player === 2) {
+      setPlayer2((prevPlayer2) => prevPlayer2.filter((c) => c !== card));
+    }
     // Alert.alert(card);
   };
+  
 
   return (
     <View style={styles.container}>
