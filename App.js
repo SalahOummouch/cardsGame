@@ -118,7 +118,7 @@ export default function App() {
           onPress: () => console.log('Cancel Pressed'),
           style: 'cancel'
         },
-        { text: 'OK', onPress: () => restartGame() }
+        { text: 'Awdi gha sir end inak', onPress: () => restartGame() }
       ],
       { cancelable: false }
     );
