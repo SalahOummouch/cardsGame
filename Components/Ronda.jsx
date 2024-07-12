@@ -4,12 +4,10 @@ import { View, Image, StyleSheet } from 'react-native';
 const Ronda = () => {
   return (
     <View style={styles.container}>
- 
       <Image
         source={require('../assets/ronda_maroc.png')}
         style={styles.image}
       />
-      
     </View>
   );
 };

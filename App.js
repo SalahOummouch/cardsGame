@@ -44,7 +44,7 @@ const cardImages = {
   "36": require("./assets/cartes/36.gif"),
   "37": require("./assets/cartes/37.gif"),
   "38": require("./assets/cartes/38.gif"),
-  "39": require("./assets/cartes/39.gif"),
+  "39": require("./assets/cartes/39.gif")
 };
 
 export default function App() {
@@ -87,7 +87,7 @@ export default function App() {
 
   const cardToBlink = (card, player) => {
     if (player !== currentTurn) {
-      Alert.alert(" wa tsna asahbi!");
+      Alert.alert("Wa Tsna Asahbi !");
       return;
     }
 
