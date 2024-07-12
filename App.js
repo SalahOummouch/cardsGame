@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { Alert, StyleSheet, Text, View, Button, Image, TouchableOpacity } from "react-native";
+import { Alert, StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import Ronda from "./Components/Ronda";
 import Blink from "./Components/Blink";
 
@@ -48,15 +48,15 @@ const cardImages = {
 };
 
 export default function App() {
-  const [currentTurn, setCurrentTurn] = useState(1);
-
-  const [distributedCards, setDistributedCards] = useState([
+  const initialDistributedCards = [
     "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10",
     "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21",
     "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32",
     "33", "34", "35", "36", "37", "38", "39"
-  ]);
+  ];
 
+  const [currentTurn, setCurrentTurn] = useState(1);
+  const [distributedCards, setDistributedCards] = useState(initialDistributedCards);
   const [player1, setPlayer1] = useState([]);
   const [player2, setPlayer2] = useState([]);
   const [blinkCards, setBlinkCards] = useState([]);
@@ -102,8 +102,18 @@ export default function App() {
     setCurrentTurn(currentTurn === 1 ? 2 : 1);
   };
 
+  const restartGame = () => {
+    setCurrentTurn(1);
+    setDistributedCards(initialDistributedCards);
+    setPlayer1([]);
+    setPlayer2([]);
+    setBlinkCards([]);
+    Alert.alert("Jeu Redémarré", "Le jeu a été redémarré avec succès !");
+  };
+
   return (
     <View style={styles.container}>
+      <Text style={styles.headerText}>Jeu de Cartes Marocain</Text>
       <View style={styles.playerContainer}>
         <Text style={styles.playerText}>Joueur 1:</Text>
         <View style={styles.cardContainer}>
@@ -135,7 +145,12 @@ export default function App() {
         </View>
       </View>
 
-      <Button title="Distribuer les cartes" onPress={distributeCards} />
+      <TouchableOpacity style={styles.button} onPress={distributeCards}>
+        <Text style={styles.buttonText}>Distribuer les cartes</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={restartGame}>
+        <Text style={styles.buttonText}>Redémarrer le jeu</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -145,16 +160,25 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#fff",
+    backgroundColor: "#f0f0f0",
+    padding: 20,
+  },
+  headerText: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 20,
+    color: "#333",
   },
   playerContainer: {
     marginVertical: 20,
     alignItems: "center",
+    width: "100%",
   },
   playerText: {
     fontSize: 18,
     fontWeight: "bold",
     marginBottom: 10,
+    color: "#333",
   },
   cardContainer: {
     flexDirection: "row",
@@ -166,5 +190,18 @@ const styles = StyleSheet.create({
     height: 75,
     margin: 5,
     resizeMode: "contain",
+  },
+  button: {
+    backgroundColor: "#6200ee",
+    padding: 10,
+    borderRadius: 5,
+    marginVertical: 10,
+    width: "80%",
+    alignItems: "center",
+  },
+  buttonText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "bold",
   },
 });
